@@ -1,0 +1,33 @@
+<h1>
+								Tic Tac Toe
+				</h1>
+				<h2>
+				It's <%=@whoseturn1%>'s turn
+					1234<%= @winner%>1234
+				</h2>
+
+
+<p align="left"<%if @won==true%> style="font-family:courier new; color:red; font-size:20px;"<%end%>><%= @game.winner?%> </p>
+<div style="float:left;">				
+		<table border="15" cellpadding="40">
+			<% @game.rows.each_with_index do |row, j| %>
+							<tr>
+											<% row.each_with_index do |cell, i| %>
+															
+															<td>
+																			<form name="input" action="" method="get">
+																							<input type="hidden" name="coordinate" value="<%= i.to_s + j.to_s %>" />
+																							<input type="submit" 	style="height: 100px; width: 200px;" name="choice" value="<%= cell	%>">
+																			</form>				
+															</td>
+															
+										<% end %>
+								</tr>
+				<% end %>
+	</table>
+</div>
+<div style="float:left;">
+	<form align= "right" name="input" action="/reset/" method="get">
+				<input type="submit" 	style="height: 633px; width: 200px; font-family: arial; font-size: 30px;" name="" value="New game"
+	</form>	
+</div>
